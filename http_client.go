@@ -13,7 +13,6 @@ func HTTPClient(dnsResolvers []net.Addr) *http.Client {
 			Proxy:                 http.ProxyFromEnvironment,
 			Dial:                  dialer.Dial,
 			TLSHandshakeTimeout:   10 * time.Second,
-			ExpectContinueTimeout: 1 * time.Second,
 		},
 	}
 }
