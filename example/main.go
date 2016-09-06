@@ -10,7 +10,7 @@ import (
 
 func main() {
 	client := dnsdialer.HTTPClient(dnsdialer.ParseResolvers(os.Args[1]))
-	resp, err := client.Get("http://google.com/")
+	resp, err := client.Get("https://burnafterreading.codebeat.co/")
 	if err != nil {
 		fmt.Printf("%#v\n", err.(*url.Error).Err)
 		panic(err)

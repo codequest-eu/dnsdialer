@@ -39,7 +39,11 @@ func (h *handler) handle() (net.Conn, error) {
 			continue
 		}
 		for _, lead := range leads {
-			ip := lead.(*dns.A).A
+			aRecord, isA := lead.(*dns.A)
+			if !isA {
+				continue
+			}
+			ip := aRecord.A
 			if h.connErr.alreadyTried(ip) {
 				continue
 			}
